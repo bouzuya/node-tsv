@@ -17,8 +17,8 @@ import { format, parse } from "@bouzuya/tsv";
 
 assert.deepStrictEqual(
   format([
-  ["123", "456"],
-  ["789", "012"],
+    ["123", "456"],
+    ["789", "012"],
   ),
   "123\t456\n789\t012"
 );
