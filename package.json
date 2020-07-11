@@ -36,6 +36,26 @@
     "rimraf": "^3.0.2",
     "typescript": "^3.9.6"
   },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "root": true,
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
   "homepage": "https://github.com/bouzuya/node-tsv#readme",
   "keywords": [
     "tsv"
