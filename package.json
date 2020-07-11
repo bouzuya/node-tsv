@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/bouzuya/node-tsv/issues"
   },
+  "devDependencies": {
+    "@types/node": "^14.0.22",
+    "typescript": "^3.9.6"
+  },
   "homepage": "https://github.com/bouzuya/node-tsv#readme",
   "keywords": [
     "tsv"
@@ -17,6 +21,7 @@
     "url": "git+https://github.com/bouzuya/node-tsv.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "node lib/index.test.js"
   }
 }
