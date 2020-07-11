@@ -56,12 +56,16 @@
       ]
     }
   },
+  "files": [
+    "lib",
+    "!lib/**/*.test.*"
+  ],
   "homepage": "https://github.com/bouzuya/node-tsv#readme",
   "keywords": [
     "tsv"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bouzuya/node-tsv.git"
@@ -75,5 +79,6 @@
     "format": "prettier --write 'src/**/*.ts'",
     "prepare": "run-s clean build",
     "test": "jest"
-  }
+  },
+  "types": "lib/index.d.ts"
 }
