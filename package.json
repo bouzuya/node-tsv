@@ -29,6 +29,7 @@
     "@typescript-eslint/eslint-plugin": "^3.6.0",
     "@typescript-eslint/parser": "^3.6.0",
     "babel-jest": "^26.1.0",
+    "chokidar-cli": "^2.1.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "jest": "^26.1.0",
@@ -72,16 +73,20 @@
     "url": "git+https://github.com/bouzuya/node-tsv.git"
   },
   "scripts": {
-    "build": "run-s build:format build:lint build:typecheck build:dts build:js",
-    "build:dts": "tsc --emitDeclarationOnly",
+    "build": "run-s build:format build:lint build:typecheck build:js",
     "build:format": "prettier --check 'src/**/*.ts'",
     "build:js": "babel --extensions '.ts' --out-dir lib 'src/**/*.ts'",
     "build:lint": "eslint 'src/**/*.ts'",
-    "build:typecheck": "tsc --noEmit",
+    "build:typecheck": "tsc --emitDeclarationOnly",
     "clean": "rimraf lib",
     "format": "prettier --write 'src/**/*.ts'",
     "prepare": "run-s clean build",
-    "test": "jest"
+    "test": "jest",
+    "watch": "run-p --print-label --silent 'watch:*'",
+    "watch:format": "chokidar --command 'npm run build:format' 'src/**/*.ts'",
+    "watch:js": "npm run build:js -- --watch",
+    "watch:lint": "chokidar --command 'npm run build:lint' 'src/**/*.ts'",
+    "watch:typecheck": "npm run build:typecheck -- --preserveWatchOutput --watch"
   },
   "types": "lib/index.d.ts"
 }
