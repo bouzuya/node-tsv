@@ -20,6 +20,7 @@
     "url": "https://github.com/bouzuya/node-tsv/issues"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
@@ -71,10 +72,12 @@
     "url": "git+https://github.com/bouzuya/node-tsv.git"
   },
   "scripts": {
-    "build": "run-s build:format build:lint build:ts",
+    "build": "run-s build:format build:lint build:typecheck build:dts build:js",
+    "build:dts": "tsc --emitDeclarationOnly",
     "build:format": "prettier --check 'src/**/*.ts'",
+    "build:js": "babel --extensions '.ts' --out-dir lib 'src/**/*.ts'",
     "build:lint": "eslint 'src/**/*.ts'",
-    "build:ts": "tsc",
+    "build:typecheck": "tsc --noEmit",
     "clean": "rimraf lib",
     "format": "prettier --write 'src/**/*.ts'",
     "prepare": "run-s clean build",
