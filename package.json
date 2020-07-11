@@ -3,15 +3,34 @@
   "description": "tsv: tab-separated values",
   "version": "0.0.0",
   "author": "bouzuya <m@bouzuya.net> (https://bouzuya.net/)",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  },
   "bugs": {
     "url": "https://github.com/bouzuya/node-tsv/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.4",
     "@types/node": "^14.0.22",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
     "@typescript-eslint/parser": "^3.6.0",
+    "babel-jest": "^26.1.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
+    "jest": "^26.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
@@ -35,6 +54,6 @@
     "clean": "rimraf lib",
     "format": "prettier --write 'src/**/*.ts'",
     "prepare": "run-s clean build",
-    "test": "node lib/index.test.js"
+    "test": "jest"
   }
 }
