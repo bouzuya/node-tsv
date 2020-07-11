@@ -4,15 +4,17 @@ export function parse(s: string, options?: { escape: boolean }): string[][] {
   return s.split("\n").map((line) =>
     line.split("\t").map((v) => {
       return escape
-        ? v
-            .split("\\n")
-            .join("\n")
-            .split("\\r")
-            .join("\r")
-            .split("\\t")
-            .join("\t")
-            .split("\\\\")
-            .join("\\")
+        ? v.replace(/\\n|\\r|\\t|\\\\/g, (c) =>
+            c === "\\n"
+              ? "\n"
+              : c === "\\r"
+              ? "\r"
+              : c === "\\t"
+              ? "\t"
+              : c === "\\\\"
+              ? "\\"
+              : ""
+          )
         : v;
     })
   );
