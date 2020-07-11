@@ -1,5 +1,6 @@
 import { parse } from "./index";
+import { parse as parseOriginal } from "./parse";
 
-test("parse empty", () => {
-  expect(parse("")).toEqual([]);
+test("re-export parse", () => {
+  expect(parse).toEqual(parseOriginal);
 });

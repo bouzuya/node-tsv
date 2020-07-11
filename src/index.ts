@@ -1,3 +1,3 @@
-export function parse(_: string): string[][] {
-  return [];
-}
+import { parse } from "./parse";
+
+export { parse };
