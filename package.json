@@ -1,7 +1,7 @@
 {
   "name": "@bouzuya/tsv",
   "description": "tsv: tab-separated values",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "bouzuya <m@bouzuya.net> (https://bouzuya.net/)",
   "babel": {
     "presets": [
